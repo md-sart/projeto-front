@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
 
 export default function JogoMatematica() {
   const [pergunta, setPergunta] = useState(gerarPergunta());
@@ -38,9 +37,7 @@ export default function JogoMatematica() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[#f6f2dc] font-sans p-6">
-      <Header />
-
+    <>
       {/* Título */}
       <h1 className="text-3xl font-bold text-[#703596] mb-4">🎯 Jogo de Matemática</h1>
 
@@ -57,12 +54,12 @@ export default function JogoMatematica() {
         </div>
 
         {/* Campo de entrada */}
-       <input
-        type="number"
-        value={resposta}
-        onChange={(e) => setResposta(e.target.value)}
-        className="border border-[#703596] rounded px-4 py-2 mb-2 w-full text-center focus:outline-none focus:border-purple-800"
-        style={{ color: "#703596" }} // Adiciona a cor roxa ao texto
+        <input
+          type="number"
+          value={resposta}
+          onChange={(e) => setResposta(e.target.value)}
+          className="border border-[#703596] rounded px-4 py-2 mb-2 w-full text-center focus:outline-none focus:border-purple-800"
+          style={{ color: "#703596" }}
         />
 
         {/* Botão Verificar */}
@@ -79,11 +76,6 @@ export default function JogoMatematica() {
 
       {/* Pontuação */}
       <p className="mt-6 text-sm text-gray-600">Pontuação: {pontos}</p>
-
-      {/* Rodapé */}
-      <footer className="text-xs text-gray-600 text-center mt-10 py-2">
-        © 2025 Sua Plataforma Educacional e Inclusiva
-      </footer>
-    </div>
+    </>
   );
 }

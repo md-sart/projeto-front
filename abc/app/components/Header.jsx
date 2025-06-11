@@ -18,6 +18,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-[#703596] shadow-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-wrap items-center justify-between text-sm sm:text-base text-white">
+        {/* Logo / Título */}
         <div
           onClick={goToHome}
           className="font-bold text-xl tracking-wide cursor-pointer select-none hover:text-yellow-300 transition-colors"
@@ -28,6 +29,7 @@ export default function Header() {
           Início
         </div>
 
+        {/* Menu de navegação */}
         <ul className="flex flex-wrap gap-4 sm:gap-6 font-medium items-center">
           <li>
             <Link href="/jogoMatematica" className="hover:underline hover:text-yellow-300 transition-colors">
