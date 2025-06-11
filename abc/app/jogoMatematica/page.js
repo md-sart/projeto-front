@@ -39,30 +39,47 @@ export default function JogoMatematica() {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-[#f6f2dc] font-sans p-6">
+      <Header />
+
+      {/* Título */}
       <h1 className="text-3xl font-bold text-[#703596] mb-4">🎯 Jogo de Matemática</h1>
+
+      {/* Instruções */}
       <p className="mb-6 text-gray-700 max-w-md text-center">
         Resolva as operações abaixo. Você ganha 1 ponto para cada resposta correta!
       </p>
-      <div className="bg-white rounded-lg shadow-md p-6 text-center">
-        <div className="text-xl font-semibold mb-4">
+
+      {/* Caixa principal */}
+      <div className="bg-white rounded-lg shadow-md p-6 text-center w-full max-w-md">
+        {/* Pergunta */}
+        <div className="text-xl font-semibold mb-4 text-[#703596]">
           Quanto é {pergunta.a} {pergunta.op} {pergunta.b}?
         </div>
+
+        {/* Campo de entrada */}
         <input
           type="number"
           value={resposta}
           onChange={(e) => setResposta(e.target.value)}
-          className="border border-gray-400 rounded px-4 py-2 mb-2 text-center"
+          className="border border-gray-400 rounded px-4 py-2 mb-2 w-full text-center focus:outline-none focus:border-[#703596]"
         />
-        <br />
+
+        {/* Botão Verificar */}
         <button
           onClick={verificarResposta}
-          className="bg-[#703596] text-white px-4 py-2 rounded hover:bg-purple-800 transition"
+          className="bg-[#703596] text-white px-4 py-2 mt-2 rounded hover:bg-purple-800 transition w-full"
         >
           Verificar
         </button>
+
+        {/* Feedback */}
         <div className="mt-4 text-lg font-medium">{feedback}</div>
       </div>
+
+      {/* Pontuação */}
       <p className="mt-6 text-sm text-gray-600">Pontuação: {pontos}</p>
+
+      {/* Rodapé */}
       <footer className="text-xs text-gray-600 text-center mt-10 py-2">
         © 2025 Sua Plataforma Educacional e Inclusiva
       </footer>
