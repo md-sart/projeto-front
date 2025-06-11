@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../components/Header";
 import { useEffect, useState } from "react";
 
 export default function HomeLogada() {
@@ -20,7 +19,7 @@ export default function HomeLogada() {
         const index = mensagens.indexOf(prev);
         return mensagens[(index + 1) % mensagens.length];
       });
-    }, 4000); // Troca a cada 4 segundos
+    }, 9000); // 
     setMensagem(mensagens[0]);
     return () => clearInterval(intervalo);
   }, []);
@@ -33,10 +32,7 @@ export default function HomeLogada() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
-      {/* Header logado */}
-      <Header />
-
+    <>
       {/* Conteúdo Principal */}
       <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10 relative overflow-hidden">
         {/* Emoji flutuante decorativo */}
@@ -91,11 +87,6 @@ export default function HomeLogada() {
           </Link>
         </div>
       </main>
-
-      {/* Rodapé */}
-      <footer className="text-xs text-gray-600 text-center mt-6 py-2">
-        © 2025 Sua Plataforma Educacional e Inclusiva
-      </footer>
-    </div>
+    </>
   );
 }
