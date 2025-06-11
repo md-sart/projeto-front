@@ -1,50 +1,47 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
+import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function HomeLogada() {
+  const [mensagem, setMensagem] = useState("");
+  const mensagens = [
+    "🎯 Aprender é um superpoder!",
+    "🚀 Continue evoluindo!",
+    "📚 Cada desafio conta!",
+    "💡 Seu cérebro está em treino!",
+  ];
+
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setMensagem((prev) => {
+        const index = mensagens.indexOf(prev);
+        return mensagens[(index + 1) % mensagens.length];
+      });
+    }, 4000); // Troca a cada 4 segundos
+    setMensagem(mensagens[0]);
+    return () => clearInterval(intervalo);
+  }, []);
+
+  const saudacao = () => {
+    const hora = new Date().getHours();
+    if (hora < 12) return "Bom dia";
+    if (hora < 18) return "Boa tarde";
+    return "Boa noite";
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full bg-[#703596] shadow-md">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-wrap items-center justify-center gap-4 sm:justify-between text-sm sm:text-base">
-          <div className="font-bold text-white text-xl tracking-wide">ABC</div>
-          <ul className="flex flex-wrap gap-4 sm:gap-6 text-white font-medium">
-            <li>
-              <Link href="/" className="hover:underline hover:text-yellow-300 transition-colors">
-                Página Inicial
-              </Link>
-            </li>
-            <li>
-              <Link href="/cadastro" className="hover:underline hover:text-yellow-300 transition-colors">
-                Cadastro
-              </Link>
-            </li>
-            <li>
-              <Link href="/jogo-matematica" className="hover:underline hover:text-yellow-300 transition-colors">
-                Jogo de Matemática
-              </Link>
-            </li>
-            <li>
-              <Link href="/jogo-palavras" className="hover:underline hover:text-yellow-300 transition-colors">
-                Jogo de Palavras
-              </Link>
-            </li>
-            <li>
-              <Link href="/ranking" className="hover:underline hover:text-yellow-300 transition-colors">
-                Ranking
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin" className="hover:underline hover:text-yellow-300 transition-colors">
-                Admin
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      {/* Header logado */}
+      <Header />
 
       {/* Conteúdo Principal */}
-      <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10">
+      <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10 relative overflow-hidden">
+        {/* Emoji flutuante decorativo */}
+        <div className="absolute top-4 left-4 animate-bounce text-3xl sm:text-5xl">🧠</div>
+
         {/* Logo */}
         <Image
           src="/lampada.svg"
@@ -55,56 +52,43 @@ export default function Home() {
           className="rounded-full"
         />
 
-        {/* Título e Subtítulo */}
+        {/* Boas-vindas com saudação */}
         <div>
-          <h1 className="text-4xl font-bold text-[#703596] mb-2">Olá, jogador</h1>
+          <h1 className="text-4xl font-bold text-[#703596] mb-2">{saudacao()}, jogador!</h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-md">
-            Aprenda de forma divertida com desafios, jogos e atividades personalizadas.
+            Essa é a sua área logada. Explore desafios, pratique leitura e suba no pódio!
           </p>
         </div>
 
-        {/* Botões principais */}
+        {/* Frase de motivação rotativa */}
+        <div className="text-[#0095d2] font-semibold text-md italic">{mensagem}</div>
+
+        {/* Ações principais */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
-          <a
+          <Link
             className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition"
-            href="/desafios"
+            href="/desafios/jogo-matematica"
           >
-            🎯 Desafios
-          </a>
-          <a
+            🎯 Jogo de Matemática
+          </Link>
+          <Link
             className="rounded-xl bg-[#0095d2] hover:bg-blue-700 text-white text-md py-3 px-6 font-semibold transition"
-            href="/praticar"
+            href="/desafios/jogo-palavras"
           >
-            📖 Praticar
-          </a>
-          <a
-            className="rounded-xl bg-[#ec2b2a] hover:bg-red-700 text-white text-md py-3 px-6 font-semibold transition"
-            href="/atividades"
+            🔤 Jogo de Palavras
+          </Link>
+          <Link
+            className="rounded-xl bg-[#f3c916] hover:bg-yellow-400 text-[#703596] text-md py-3 px-6 font-semibold transition"
+            href="/leitura"
           >
-            📝 Atividades
-          </a>
-          <a
+            📖 Leitura
+          </Link>
+          <Link
             className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition"
-            href="/podio"
+            href="/ranking"
           >
             🏆 Pódio
-          </a>
-        </div>
-
-        {/* Botões de conta */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-6">
-          <a
-            className="rounded-full bg-[#f3c916] hover:bg-yellow-400 text-[#703596] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition"
-            href="/cadastro"
-          >
-            Cadastre-se
-          </a>
-          <a
-            className="rounded-full border border-[#703596] text-[#703596] hover:bg-[#f6f2dc] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition"
-            href="/login"
-          >
-            Já tenho conta
-          </a>
+          </Link>
         </div>
       </main>
 
