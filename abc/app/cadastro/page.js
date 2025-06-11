@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import HeaderLP from "../components/HeaderLP";
 
 export default function Cadastro() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -22,9 +24,10 @@ export default function Cadastro() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você poderá integrar com Back4App futuramente
-    console.log("Dados para cadastro:", formData);
-    alert("Cadastro realizado! (Simulação)");
+    // Salvar os dados no localStorage (simulação)
+    localStorage.setItem("usuario", JSON.stringify(formData));
+    alert("Conta criada com sucesso!");
+    router.push("/home");
   };
 
   return (
@@ -90,21 +93,6 @@ export default function Cadastro() {
               className="mt-1 rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#703596]"
               placeholder="Sua idade"
             />
-          </label>
-
-          <label className="flex flex-col">
-            Progresso Inicial
-            <input
-              type="number"
-              name="progresso"
-              value={formData.progresso}
-              onChange={handleChange}
-              readOnly
-              className="mt-1 rounded-md border border-gray-300 p-2 bg-gray-100 cursor-not-allowed"
-            />
-            <small className="text-xs text-gray-500 mt-1">
-              O progresso inicia zerado.
-            </small>
           </label>
 
           <button

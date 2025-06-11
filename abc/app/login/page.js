@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import HeaderLP from "../components/HeaderLP";
 
 export default function Login() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     senha: "",
@@ -19,9 +21,18 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você poderá integrar o login e carregamento de dados
-    console.log("Tentativa de login:", formData);
-    alert("Login efetuado! (Simulação)");
+    const storedUser = JSON.parse(localStorage.getItem("usuario"));
+
+    if (
+      storedUser &&
+      storedUser.email === formData.email &&
+      storedUser.senha === formData.senha
+    ) {
+      alert("Login efetuado com sucesso!");
+      router.push("/home");
+    } else {
+      alert("Email ou senha incorretos!");
+    }
   };
 
   return (
