@@ -57,11 +57,12 @@ export default function JogoMatematica() {
         </div>
 
         {/* Campo de entrada */}
-        <input
-          type="number"
-          value={resposta}
-          onChange={(e) => setResposta(e.target.value)}
-          className="border border-gray-400 rounded px-4 py-2 mb-2 w-full text-center focus:outline-none focus:border-[#703596]"
+       <input
+        type="number"
+        value={resposta}
+        onChange={(e) => setResposta(e.target.value)}
+        className="border border-[#703596] rounded px-4 py-2 mb-2 w-full text-center focus:outline-none focus:border-purple-800"
+        style={{ color: "#703596" }} // Adiciona a cor roxa ao texto
         />
 
         {/* Botão Verificar */}
