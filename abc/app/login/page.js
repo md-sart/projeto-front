@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import HeaderLP from "../components/HeaderLP";
 
 export default function Login() {
@@ -42,10 +43,7 @@ export default function Login() {
       <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10 max-w-md mx-auto w-full">
         <h1 className="text-4xl font-bold text-[#703596] mb-6">Login do Jogador</h1>
 
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-5 w-full text-left text-gray-700"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full text-left text-gray-700">
           <label className="flex flex-col">
             Email
             <input
@@ -79,6 +77,13 @@ export default function Login() {
             Entrar
           </button>
         </form>
+
+        <p className="text-sm text-gray-700">
+          Ainda não tem conta?{" "}
+          <Link href="/cadastro" className="text-[#703596] hover:underline">
+            Cadastre-se
+          </Link>
+        </p>
       </main>
 
       <footer className="text-xs text-gray-600 text-center mt-6 py-2">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import HeaderLP from "../components/HeaderLP";
 
 export default function Cadastro() {
@@ -24,9 +25,8 @@ export default function Cadastro() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Salvar os dados no localStorage (simulação)
     localStorage.setItem("usuario", JSON.stringify(formData));
-    alert("Conta criada com sucesso!");
+    alert("Conta criada com sucesso! Você está logado.");
     router.push("/home");
   };
 
@@ -37,10 +37,7 @@ export default function Cadastro() {
       <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10 max-w-md mx-auto w-full">
         <h1 className="text-4xl font-bold text-[#703596] mb-6">Cadastro de Novo Jogador</h1>
 
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-5 w-full text-left text-gray-700"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full text-left text-gray-700">
           <label className="flex flex-col">
             Nome
             <input
@@ -102,6 +99,13 @@ export default function Cadastro() {
             Cadastrar
           </button>
         </form>
+
+        <p className="text-sm text-gray-700">
+          Já tem conta?{" "}
+          <Link href="/login" className="text-[#703596] hover:underline">
+            Faça login
+          </Link>
+        </p>
       </main>
 
       <footer className="text-xs text-gray-600 text-center mt-6 py-2">
