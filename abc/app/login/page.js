@@ -1,4 +1,5 @@
-// login/page.js
+"use client";
+
 import { useState } from "react";
 import HeaderLP from "../components/HeaderLP";
 
