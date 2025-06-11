@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout"; // ajuste o caminho se necessário
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,14 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-[#f6f2dc] font-sans`}
       >
-        {/* Apenas o Layout é responsável por decidir se mostra ou não Header */}
-        <Layout>
-          {children}
-        </Layout>
-
-        <footer className="text-xs text-gray-600 text-center py-4">
-          © 2025 Plataforma Educacional e Inclusiva
-        </footer>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
