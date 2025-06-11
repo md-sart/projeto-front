@@ -12,25 +12,25 @@ export default function Header() {
   }
 
   function handleReload() {
-    router.reload();
+    router.refresh(); // Atualiza a página sem perder o estado
   }
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#703596] shadow-md">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-wrap items-center justify-center gap-4 sm:justify-between text-sm sm:text-base">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-wrap items-center justify-between text-sm sm:text-base text-white">
         <div
           onClick={handleReload}
-          className="font-bold text-white text-xl tracking-wide cursor-pointer select-none hover:text-yellow-300 transition-colors"
-          title="Início (recarregar)"
+          className="font-bold text-xl tracking-wide cursor-pointer select-none hover:text-yellow-300 transition-colors"
+          title="Recarregar página"
           tabIndex={0}
           onKeyDown={(e) => e.key === "Enter" && handleReload()}
         >
           Início
         </div>
-        <ul className="flex flex-wrap gap-4 sm:gap-6 text-white font-medium items-center">
+        <ul className="flex flex-wrap gap-4 sm:gap-6 font-medium items-center">
           <li>
             <Link
-              href="/desafios/jogo-matematica"
+              href="/jogoMatematica"
               className="hover:underline hover:text-yellow-300 transition-colors"
             >
               Jogo de Matemática
@@ -38,7 +38,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="/desafios/jogo-palavras"
+              href="/jogoPalavras"
               className="hover:underline hover:text-yellow-300 transition-colors"
             >
               Jogo de Palavras
@@ -54,7 +54,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="/ranking"
+              href="/rankingPessoal"
               className="hover:underline hover:text-yellow-300 transition-colors"
             >
               Ranking
