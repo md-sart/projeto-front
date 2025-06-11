@@ -1,5 +1,3 @@
-"use client";
-
 import { useRouter } from "next/router";
 import Header from "./Header";
 import HeaderLP from "./HeaderLP";
