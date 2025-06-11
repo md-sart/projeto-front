@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const router = useRouter();
@@ -21,7 +23,7 @@ export default function Header() {
           className="font-bold text-white text-xl tracking-wide cursor-pointer select-none hover:text-yellow-300 transition-colors"
           title="Início (recarregar)"
           tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleReload()}
+          onKeyDown={(e) => e.key === "Enter" && handleReload()}
         >
           Início
         </div>
