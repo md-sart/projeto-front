@@ -1,11 +1,10 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
 import Header from "./Header";
 import HeaderLP from "./HeaderLP";
+import { usePathname } from "next/navigation";
 
 export default function Layout({ children }) {
-  const router = useRouter();
   const pathname = usePathname();
 
   const publicPages = ["/", "/login", "/cadastro"];
