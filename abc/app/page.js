@@ -1,10 +1,13 @@
+// pages/index.js
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/header";
+import HeaderLP from "@/components/headerLP";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
+      <HeaderLP />
+
       {/* Conteúdo Principal */}
       <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10">
         {/* Logo */}
@@ -25,48 +28,42 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Botões principais */}
+        {/* Ícones ilustrativos (redirecionam para login) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
-          <a
-            className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition"
-            href="/desafios"
-          >
-            🎯 Desafios
-          </a>
-          <a
-            className="rounded-xl bg-[#0095d2] hover:bg-blue-700 text-white text-md py-3 px-6 font-semibold transition"
-            href="/praticar"
-          >
-            📖 Praticar
-          </a>
-          <a
-            className="rounded-xl bg-[#ec2b2a] hover:bg-red-700 text-white text-md py-3 px-6 font-semibold transition"
-            href="/atividades"
-          >
-            📝 Atividades
-          </a>
-          <a
-            className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition"
-            href="/podio"
-          >
-            🏆 Pódio
-          </a>
+          <Link href="/login">
+            <a className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition">
+              🎯 Desafios
+            </a>
+          </Link>
+          <Link href="/login">
+            <a className="rounded-xl bg-[#0095d2] hover:bg-blue-700 text-white text-md py-3 px-6 font-semibold transition">
+              📖 Praticar
+            </a>
+          </Link>
+          <Link href="/login">
+            <a className="rounded-xl bg-[#ec2b2a] hover:bg-red-700 text-white text-md py-3 px-6 font-semibold transition">
+              📝 Atividades
+            </a>
+          </Link>
+          <Link href="/login">
+            <a className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition">
+              🏆 Pódio
+            </a>
+          </Link>
         </div>
 
         {/* Botões de conta */}
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
-          <a
-            className="rounded-full bg-[#f3c916] hover:bg-yellow-400 text-[#703596] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition"
-            href="/cadastro"
-          >
-            Cadastre-se
-          </a>
-          <a
-            className="rounded-full border border-[#703596] text-[#703596] hover:bg-[#f6f2dc] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition"
-            href="/login"
-          >
-            Já tenho conta
-          </a>
+          <Link href="/cadastro">
+            <a className="rounded-full bg-[#f3c916] hover:bg-yellow-400 text-[#703596] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition">
+              Cadastre-se
+            </a>
+          </Link>
+          <Link href="/login">
+            <a className="rounded-full border border-[#703596] text-[#703596] hover:bg-[#f6f2dc] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition">
+              Já tenho conta
+            </a>
+          </Link>
         </div>
       </main>
 
