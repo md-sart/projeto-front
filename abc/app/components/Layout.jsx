@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "./Header";
-import HeaderLP from "./HeaderLP";
+import HeaderLP from "./HeaderLP"; 
 import { usePathname } from "next/navigation";
 
 export default function Layout({ children }) {
