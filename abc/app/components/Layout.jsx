@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/router";
 import Header from "./Header";
 import HeaderLP from "./HeaderLP";
@@ -5,7 +7,6 @@ import HeaderLP from "./HeaderLP";
 export default function Layout({ children }) {
   const router = useRouter();
 
-  // Defina quais rotas usam o Header público
   const publicPages = ["/", "/login", "/cadastro"];
   const isPublicPage = publicPages.includes(router.asPath);
 
