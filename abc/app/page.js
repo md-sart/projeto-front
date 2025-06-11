@@ -1,20 +1,15 @@
-// pages/index.js
 import Image from "next/image";
 import Link from "next/link";
-import HeaderLP from "./components/HeaderLP";
-
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
-      <HeaderLP />
-
+    <>
       {/* Conteúdo Principal */}
       <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10">
         {/* Logo */}
         <Image
           src="/lampada.svg"
-          alt="Logo da Plataforma"
+          alt=" "
           width={120}
           height={120}
           priority
@@ -41,7 +36,7 @@ export default function Home() {
             📝 Atividades
           </Link>
           <Link href="/login" className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2">
-            🏆 Pódio
+            🏆 Ranking
           </Link>
         </div>
 
@@ -59,11 +54,6 @@ export default function Home() {
           </Link>
         </div>
       </main>
-
-      {/* Rodapé */}
-      <footer className="text-xs text-gray-600 text-center mt-6 py-2">
-        © 2025 Sua Plataforma Educacional e Inclusiva
-      </footer>
-    </div>
+    </>
   );
 }
