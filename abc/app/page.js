@@ -7,7 +7,7 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 w-full bg-[#703596] shadow-md">
         <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-wrap items-center justify-center gap-4 sm:justify-between text-sm sm:text-base">
-          <div className="font-bold text-white text-xl tracking-wide">Duda Games</div>
+          <div className="font-bold text-white text-xl tracking-wide">ABC</div>
           <ul className="flex flex-wrap gap-4 sm:gap-6 text-white font-medium">
             <li>
               <Link href="/" className="hover:underline hover:text-yellow-300 transition-colors">
@@ -57,7 +57,7 @@ export default function Home() {
 
         {/* Título e Subtítulo */}
         <div>
-          <h1 className="text-4xl font-bold text-[#703596] mb-2">Olá, Duda!</h1>
+          <h1 className="text-4xl font-bold text-[#703596] mb-2">Olá, jogador</h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-md">
             Aprenda de forma divertida com desafios, jogos e atividades personalizadas.
           </p>
@@ -110,7 +110,7 @@ export default function Home() {
 
       {/* Rodapé */}
       <footer className="text-xs text-gray-600 text-center mt-6 py-2">
-        © 2025 Sua Plataforma Educacional
+        © 2025 Sua Plataforma Educacional e Inclusiva
       </footer>
     </div>
   );
