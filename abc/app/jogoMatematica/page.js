@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
 
 export default function JogoMatematica() {
   const [pergunta, setPergunta] = useState(gerarPergunta());
