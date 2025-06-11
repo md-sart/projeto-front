@@ -1,7 +1,5 @@
 "use client";
 
-import Header from "../components/Header";
-
 export default function Ranking() {
   // Simulação de dados do usuário
   const usuario = {
@@ -26,10 +24,7 @@ export default function Ranking() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[#f6f2dc] font-sans p-6">
-      <Header />
-      <div className="mb-8"></div>
-
+    <>
       <h1 className="text-3xl font-bold text-[#ec2b2a] mb-4">🏆 Seu Desempenho</h1>
 
       {/* Informações do usuário */}
@@ -57,10 +52,6 @@ export default function Ranking() {
           </li>
         ))}
       </ul>
-
-      <footer className="text-xs text-gray-600 text-center mt-10 py-2">
-        © 2025 Sua Plataforma Educacional e Inclusiva
-      </footer>
-    </div>
+    </>
   );
 }

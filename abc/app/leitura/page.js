@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Header from "../components/Header";
 
 export default function Leitura() {
   const [textoSelecionado, setTextoSelecionado] = useState(textos[0].conteudo);
@@ -22,15 +21,12 @@ export default function Leitura() {
 
   const speakText = () => {
     if ("speechSynthesis" in window) {
-      // Verifica se há texto selecionado no campo
       const selection = document.getSelection();
       let textoParaLer;
 
       if (selection && selection.toString().trim() !== "") {
-        // Usa a seleção do usuário
         textoParaLer = selection.toString();
       } else {
-        // Se não houver seleção, lê o texto inteiro
         textoParaLer = textoSelecionado;
       }
 
@@ -43,11 +39,10 @@ export default function Leitura() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[#f6f2dc] font-sans p-6">
-      <Header />
-      <div className="mb-8"></div>
-
+    <>
+      {/* Título */}
       <h1 className="text-3xl font-bold text-[#703596] mb-4">📖 Leitura</h1>
+
       <p className="mb-6 text-gray-700 max-w-md text-center">
         Escolha o texto e tema desejado e ative a leitura automática.
       </p>
@@ -88,7 +83,7 @@ export default function Leitura() {
         </div>
       </div>
 
-      {/* Lista de textos filtrados */}
+      {/* Campo de texto */}
       <div className="bg-white rounded shadow p-4 mb-4 w-full max-w-xl h-40 overflow-y-auto">
         <textarea
           value={textoSelecionado}
@@ -105,15 +100,11 @@ export default function Leitura() {
       >
         🔊 Ler em voz alta
       </button>
-
-      <footer className="text-xs text-gray-600 text-center mt-10 py-2">
-        © 2025 Sua Plataforma Educacional e Inclusiva
-      </footer>
-    </div>
+    </>
   );
 }
 
-// Exemplo de base de textos
+// Base de textos
 const textos = [
   {
     dificuldade: "fácil",

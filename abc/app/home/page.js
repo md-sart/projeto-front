@@ -41,7 +41,7 @@ export default function HomeLogada() {
         {/* Logo */}
         <Image
           src="/lampada.svg"
-          alt="Logo da Plataforma"
+          alt=""
           width={120}
           height={120}
           priority
