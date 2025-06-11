@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import HeaderLP from "../components/HeaderLP";
 
 export default function Login() {
   const router = useRouter();
