@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Layout from "./components/Layout"; // importa seu componente Layout
+import Layout from "./components/Layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-[#f6f2dc] font-sans`}
       >
-        {/* Envolva todo o conteúdo no Layout para gerenciar header e estrutura */}
+        {/* Apenas o Layout é responsável por decidir se mostra ou não Header */}
         <Layout>
           {children}
         </Layout>
