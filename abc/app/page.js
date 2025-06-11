@@ -1,7 +1,7 @@
 // pages/index.js
 import Image from "next/image";
 import Link from "next/link";
-import HeaderLP from "@/components/headerLP";
+import HeaderLP from "@/components/HeaderLP";
 
 export default function Home() {
   return (
