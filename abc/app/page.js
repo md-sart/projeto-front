@@ -29,27 +29,19 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Ícones ilustrativos (redirecionam para login) */}
+        {/* Botões principais */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
-          <Link href="/login">
-            <a className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition">
-              🎯 Desafios
-            </a>
+          <Link href="/login" className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2">
+            🎯 Desafios
           </Link>
-          <Link href="/login">
-            <a className="rounded-xl bg-[#0095d2] hover:bg-blue-700 text-white text-md py-3 px-6 font-semibold transition">
-              📖 Praticar
-            </a>
+          <Link href="/login" className="rounded-xl bg-[#0095d2] hover:bg-blue-700 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2">
+            📖 Praticar
           </Link>
-          <Link href="/login">
-            <a className="rounded-xl bg-[#ec2b2a] hover:bg-red-700 text-white text-md py-3 px-6 font-semibold transition">
-              📝 Atividades
-            </a>
+          <Link href="/login" className="rounded-xl bg-[#ec2b2a] hover:bg-red-700 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2">
+            📝 Atividades
           </Link>
-          <Link href="/login">
-            <a className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition">
-              🏆 Pódio
-            </a>
+          <Link href="/login" className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2">
+            🏆 Pódio
           </Link>
         </div>
 
