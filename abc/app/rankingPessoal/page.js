@@ -52,7 +52,7 @@ export default function Ranking() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f5f5] font-sans">
+    <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
       <Header />
 
       <main className="flex-grow flex flex-col items-center p-6 sm:p-10">
