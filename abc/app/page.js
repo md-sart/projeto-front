@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import HeaderLP from "./components/HeaderLP";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <>
-      {/* Conteúdo Principal */}
+    <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
+      <HeaderLP />
+
       <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10">
         {/* Logo */}
         <Image
@@ -71,6 +74,8 @@ export default function Home() {
           </Link>
         </div>
       </main>
-    </>
+
+      <Footer />
+    </div>
   );
 }

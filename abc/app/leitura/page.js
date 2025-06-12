@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function Leitura() {
   const [textoSelecionado, setTextoSelecionado] = useState(textos[0].conteudo);
@@ -39,68 +41,74 @@ export default function Leitura() {
   };
 
   return (
-    <>
-      {/* Título */}
-      <h1 className="text-3xl font-bold text-[#703596] mb-4">📖 Leitura</h1>
+    <div className="min-h-screen flex flex-col bg-[#f5f5f5] font-sans">
+      <Header />
 
-      <p className="mb-6 text-gray-700 max-w-md text-center">
-        Escolha o texto e tema desejado e ative a leitura automática.
-      </p>
+      <main className="flex-grow flex flex-col items-center p-6 sm:p-10">
+        {/* Título */}
+        <h1 className="text-3xl font-bold text-[#703596] mb-4">📖 Leitura</h1>
 
-      {/* Filtros */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6 w-full max-w-lg">
-        <div>
-          <label htmlFor="dificuldade" className="block text-sm font-medium mb-1">
-            Dificuldade
-          </label>
-          <select
-            id="dificuldade"
-            value={dificuldade}
-            onChange={(e) => setDificuldade(e.target.value)}
-            className="border border-gray-300 rounded px-3 py-1"
-          >
-            <option value="todos">Todos</option>
-            <option value="fácil">Fácil</option>
-            <option value="médio">Médio</option>
-            <option value="difícil">Difícil</option>
-          </select>
+        <p className="mb-6 text-gray-700 max-w-md text-center">
+          Escolha o texto e tema desejado e ative a leitura automática.
+        </p>
+
+        {/* Filtros */}
+        <div className="flex flex-wrap justify-center gap-4 mb-6 w-full max-w-lg">
+          <div>
+            <label htmlFor="dificuldade" className="block text-sm font-medium mb-1">
+              Dificuldade
+            </label>
+            <select
+              id="dificuldade"
+              value={dificuldade}
+              onChange={(e) => setDificuldade(e.target.value)}
+              className="border border-gray-300 rounded px-3 py-1"
+            >
+              <option value="todos">Todos</option>
+              <option value="fácil">Fácil</option>
+              <option value="médio">Médio</option>
+              <option value="difícil">Difícil</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="tema" className="block text-sm font-medium mb-1">
+              Tema
+            </label>
+            <select
+              id="tema"
+              value={tema}
+              onChange={(e) => setTema(e.target.value)}
+              className="border border-gray-300 rounded px-3 py-1"
+            >
+              <option value="todos">Todos</option>
+              <option value="ciência">Ciência</option>
+              <option value="história">História</option>
+              <option value="literatura">Literatura</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label htmlFor="tema" className="block text-sm font-medium mb-1">
-            Tema
-          </label>
-          <select
-            id="tema"
-            value={tema}
-            onChange={(e) => setTema(e.target.value)}
-            className="border border-gray-300 rounded px-3 py-1"
-          >
-            <option value="todos">Todos</option>
-            <option value="ciência">Ciência</option>
-            <option value="história">História</option>
-            <option value="literatura">Literatura</option>
-          </select>
+
+        {/* Campo de texto */}
+        <div className="bg-white rounded shadow p-4 mb-4 w-full max-w-xl h-40 overflow-y-auto">
+          <textarea
+            value={textoSelecionado}
+            onChange={handleTextoChange}
+            className="w-full h-full resize-none focus:outline-none"
+            placeholder="Selecione uma parte do texto para ler..."
+          ></textarea>
         </div>
-      </div>
 
-      {/* Campo de texto */}
-      <div className="bg-white rounded shadow p-4 mb-4 w-full max-w-xl h-40 overflow-y-auto">
-        <textarea
-          value={textoSelecionado}
-          onChange={handleTextoChange}
-          className="w-full h-full resize-none focus:outline-none"
-          placeholder="Selecione uma parte do texto para ler..."
-        ></textarea>
-      </div>
+        {/* Botão de leitura */}
+        <button
+          onClick={speakText}
+          className="bg-[#0095d2] hover:bg-blue-700 text-white px-6 py-2 rounded transition"
+        >
+          🔊 Ler em voz alta
+        </button>
+      </main>
 
-      {/* Botão de leitura */}
-      <button
-        onClick={speakText}
-        className="bg-[#0095d2] hover:bg-blue-700 text-white px-6 py-2 rounded transition"
-      >
-        🔊 Ler em voz alta
-      </button>
-    </>
+      <Footer />
+    </div>
   );
 }
 

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function HomeLogada() {
   const [mensagem, setMensagem] = useState("");
@@ -19,7 +21,7 @@ export default function HomeLogada() {
         const index = mensagens.indexOf(prev);
         return mensagens[(index + 1) % mensagens.length];
       });
-    }, 9000); // 
+    }, 9000);
     setMensagem(mensagens[0]);
     return () => clearInterval(intervalo);
   }, []);
@@ -32,16 +34,17 @@ export default function HomeLogada() {
   };
 
   return (
-    <>
-      {/* Conteúdo Principal */}
-      <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
+      <Header />
+
+      <main className="flex-grow flex flex-col gap-10 items-center text-center p-6 sm:p-10 relative overflow-hidden max-w-md mx-auto w-full">
         {/* Emoji flutuante decorativo */}
         <div className="absolute top-4 left-4 animate-bounce text-3xl sm:text-5xl">🧠</div>
 
         {/* Logo */}
         <Image
           src="/lampada.svg"
-          alt=""
+          alt="Logo"
           width={120}
           height={120}
           priority
@@ -87,6 +90,8 @@ export default function HomeLogada() {
           </Link>
         </div>
       </main>
-    </>
+
+      <Footer />
+    </div>
   );
 }

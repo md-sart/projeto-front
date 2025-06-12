@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import HeaderLP from "./components/HeaderLP";
+import Footer from "./components/Footer";
 
 export default function Login() {
   const router = useRouter();
@@ -39,7 +41,7 @@ export default function Login() {
     <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
       <HeaderLP />
 
-      <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10 max-w-md mx-auto w-full">
+      <main className="flex-grow flex flex-col gap-10 items-center text-center p-6 sm:p-10 max-w-md mx-auto w-full">
         <h1 className="text-4xl font-bold text-[#703596] mb-6">Login do Jogador</h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full text-left text-gray-700">
@@ -85,9 +87,7 @@ export default function Login() {
         </p>
       </main>
 
-      <footer className="text-xs text-gray-600 text-center mt-6 py-2">
-        © 2025 Sua Plataforma Educacional e Inclusiva
-      </footer>
+      <Footer />
     </div>
   );
 }
