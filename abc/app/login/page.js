@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import HeaderLP from "../../components/HeaderLP";
-import Footer from "../../components/Footer";
+import HeaderLP from "../components/HeaderLP";
+import Footer from "../components/Footer";
 
 export default function Login() {
   const router = useRouter();
