@@ -9,6 +9,13 @@ export default function Leitura() {
   const [tema, setTema] = useState("todos");
   const [velocidade, setVelocidade] = useState(1);
   const [textoSelecionado, setTextoSelecionado] = useState("");
+  const [leiturasFeitas, setLeiturasFeitas] = useState(0);
+
+  // Carrega a contagem de leituras do localStorage ao montar o componente
+  useEffect(() => {
+    const leiturasSalvas = parseInt(localStorage.getItem("leituras_feitas")) || 0;
+    setLeiturasFeitas(leiturasSalvas);
+  }, []);
 
   // Troca automática ao mudar filtro
   useEffect(() => {
@@ -56,6 +63,13 @@ export default function Leitura() {
       utterance.lang = "pt-BR";
       utterance.rate = velocidade;
       speechSynthesis.speak(utterance);
+
+      // Incrementa a contagem de leituras feitas e salva no localStorage
+      setLeiturasFeitas((prev) => {
+        const novoValor = prev + 1;
+        localStorage.setItem("leituras_feitas", novoValor.toString());
+        return novoValor;
+      });
     } else {
       alert("Seu navegador não suporta leitura automática.");
     }
@@ -147,6 +161,10 @@ export default function Leitura() {
         >
           🔊 Ler em voz alta
         </button>
+
+        <p className="mt-4 text-gray-700">
+          Leituras feitas: <strong>{leiturasFeitas}</strong>
+        </p>
       </main>
 
       <Footer />

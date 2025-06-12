@@ -8,16 +8,16 @@ export default function JogoPalavras() {
   const [palavra, setPalavra] = useState(gerarPalavra());
   const [resposta, setResposta] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [pontos, setPontos] = useState(0);
+  const [pontos_portugues, setpontos_portugues] = useState(0);
 
   useEffect(() => {
     const score = localStorage.getItem("score_palavras") || "0";
-    setPontos(parseInt(score));
+    setpontos_portugues(parseInt(score));
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("score_palavras", pontos.toString());
-  }, [pontos]);
+    localStorage.setItem("score_palavras", pontos_portugues.toString());
+  }, [pontos_portugues]);
 
   function gerarPalavra() {
     const palavras = ["casa", "livro", "mesa", "caneta", "sol", "carro", "gato", "janela"];
@@ -31,7 +31,7 @@ export default function JogoPalavras() {
   function verificarResposta() {
     if (resposta.toLowerCase().trim() === palavra.palavra) {
       setFeedback("✔️ Correto!");
-      setPontos((prev) => prev + 1);
+      setpontos_portugues((prev) => prev + 1);
     } else {
       setFeedback(`❌ Errado. A resposta era "${palavra.palavra}"`);
     }
@@ -82,7 +82,7 @@ export default function JogoPalavras() {
         </div>
 
         {/* Pontuação */}
-        <p className="mt-6 text-sm text-gray-600">Pontuação: {pontos}</p>
+        <p className="mt-6 text-sm text-gray-600">Pontuação: {pontos_portugues}</p>
       </main>
 
       <Footer />
